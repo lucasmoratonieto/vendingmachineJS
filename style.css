@@ -13,9 +13,9 @@
 
 }
 
-#products{
-    /* visibility: hidden; */
-}
+/* #products{
+    visibility: hidden;
+} */
 
 .left-side{
     margin: 15px;
@@ -33,17 +33,59 @@
 }
 #screen-buttons{
     margin-top: 100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
-#screen{
+
+
+/* #screen{
     justify-content: center;
     align-items: center;
     background: whitesmoke;
     border-radius: 10px;
-    width: 100%;
+    width: 150px;
     height: 100px;
     margin-bottom: 10px;
+        @media (max-width: 640px) {
+        width: 110px;
+        height: 100px;
+        font-size: small;
+        justify-content: center;
+        align-items: center;
+        
+      }
+} */
+
+#screen-input{
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: whitesmoke;
+    border-radius: 10px;
+    width: 150px;
+    height: 100px;
+    margin-bottom: 10px;
+    
+    @media (max-width: 640px) {
+        width: 110px;
+        height: 100px;
+        font-size: small;
+        justify-content: center;
+        align-items: center;
+        
+      }
+
+}
+
+#buttons{
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .myButton{
@@ -61,4 +103,10 @@
         
       } */
 }
-
+#money{
+    margin-top: 5px;
+}
+#money-buttons-check{
+    display: flex;
+    justify-content: center;
+}
