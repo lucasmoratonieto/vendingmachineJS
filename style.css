@@ -1,8 +1,13 @@
+body{
+    font-family: 'New X Digital tfb', sans-serif;
+    font-size: 10px;
+}
+
 #machine{
     display: flex;
     background-color: rgb(51, 51, 51);
     min-width: 300px;
-    max-width: 800px;
+    max-width: 600px;
     min-height: 550px;
     margin: auto;
     border-radius: 10px;
@@ -13,14 +18,23 @@
 
 }
 
-/* #products{
-    visibility: hidden;
-} */
+
 
 .left-side{
     margin: 15px;
     background-color: rgb(175, 255, 255);
     width: 70%;
+}
+
+#products{
+    padding: 20px;
+}
+.product-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
 }
 
 .rigth-side{
@@ -62,18 +76,20 @@
 
 #screen-input{
     display:  flex;
+    resize: none;
     justify-content: center;
     align-items: center;
     text-align: center;
     background: whitesmoke;
     border-radius: 10px;
     width: 150px;
-    height: 100px;
+    height: 120px;
     margin-bottom: 10px;
     
+    font-family: 'New X Digital tfb', sans-serif;
     @media (max-width: 640px) {
         width: 110px;
-        height: 100px;
+        height: 140px;
         font-size: small;
         justify-content: center;
         align-items: center;

@@ -1,3 +1,56 @@
+
+
+// fetch('./products.json')
+//     .then((response) => response.json())
+//     .then((productsJSON) => console.log(productsJSON));
+
+// productsJSON[3]={
+//     "name":"Chips",
+//     "value":0.50,
+//     "cuantity":5
+// }
+
+// console.log(productsJSON)
+
+
+
+async function getData() {
+  const url = "./products.json";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const json = await response.json();
+    console.log(json);
+    editJSONData(json);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+function editJSONData(json){
+  json[3]={
+      "name":"Chips",
+      "value":0.50,
+      "cuantity":5
+  }
+  console.log(json);
+
+}
+
+
+getData()
+
+
+
+
+
+
+
+
+
 const buttonsNumber = document.getElementsByClassName('myButtonNumber')
 const buttonsMoney = document.getElementsByClassName('myButtonMoney')
 let customerProductNumber = '';
@@ -7,6 +60,7 @@ const enterButton = document.getElementsByClassName('myButtonEnterCancel')[0]
 const cancelButton = document.getElementsByClassName('myButtonEnterCancel')[1]
 const enterMoneyButton = document.getElementsByClassName('myButtonEnterCancel')[0]
 const cancelMoneyButton = document.getElementsByClassName('myButtonEnterCancel')[1]
+
 
 
 for (i = 0; i < buttonsNumber.length; i++){
@@ -70,11 +124,12 @@ function screenDataBeforeSelect(productSelectedNumber){
 }
 
 function screenDataAfterSelect(customerProductMoneyEntered, productSelected, productCost){
+  const returnMoney = (productCost - customerProductMoneyEntered).toFixed(2)
   document.getElementById('screen-input').value =document.getElementById('screen-input').value =`You have selected;\n Product: ${productSelected}\nCost: ${productCost}$
 
   Money Entered: ${customerProductMoneyEntered}
   
-  Left ${productCost - customerProductMoneyEntered}$`
+  Left ${returnMoney}$`
 
   if (customerProductMoneyEntered >= productCost){
     change(customerProductMoneyEntered, productCost)
@@ -83,10 +138,27 @@ function screenDataAfterSelect(customerProductMoneyEntered, productSelected, pro
 }
 
 function change(customerProductMoneyEntered, productCost){
-  let change = customerProductMoneyEntered - productCost
-  document.getElementById('screen-input').value =document.getElementById('screen-input').value =`Thak you for your purchase.\n 
+  let change = (customerProductMoneyEntered - productCost).toFixed(2);
+  document.getElementById('screen-input').value =document.getElementById('screen-input').value =`Thank you for the purchase.\n 
   
   The money back is ${change}$`
+  document.getElementById('buttons-number').hidden = false
+  document.getElementById('buttons-money').hidden = true
+  
+  const eachButtonNumber  = document.getElementsByClassName('myButtonNumberDisabled');
+  console.log(eachButtonNumber)
+  
+  for (i = 0; i < eachButtonNumber.length; i++){
+      eachButtonNumber[i].disabled = true;
+
+  }
+  setTimeout(()=>{
+    document.getElementById('screen-input').value ="";
+    for (i = 0; i < eachButtonNumber.length; i++){
+      eachButtonNumber[i].disabled = false;
+  }
+  },"5000")
+
 }
 
 

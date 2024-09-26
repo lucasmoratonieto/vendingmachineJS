@@ -1,0 +1,12 @@
+{
+    "1":{
+        "name":"Coke",
+        "value":1.5,
+        "cuantity":5
+    },
+    "2":{
+        "name":"Pepsi",
+        "value":1.00,
+        "cuantity":2
+    }
+}
